@@ -11,9 +11,9 @@ const BalanceCounter = () => {
   return (
     <Container>
       {show && <Popup />}
-      <Row>
-        <Col className="d-flex justify-content-center my-5">
-          <Card className="shadow p-4 border-0 w-50">
+      <Row className="d-flex justify-content-center my-5">
+        <Col className="col-12 col-md-6">
+          <Card className="shadow p-4 border-0">
               <div className="d-flex align-items-center bank-logo mx-auto">
                 <Image src={logo} />
               </div>
@@ -37,7 +37,7 @@ const BalanceCounter = () => {
               </div>
               <div className="d-flex flex-wrap justify-content-center gap-3">
                 <Button className="w-50" onClick={deposit}>
-                  Deposit Money
+                  Deposit
                 </Button>
                 <Button className="w-50" onClick={withDraw}>
                   With Draw
