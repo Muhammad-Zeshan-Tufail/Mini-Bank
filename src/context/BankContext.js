@@ -13,10 +13,10 @@ const BankProvider = ({ children }) => {
 
   const deposit = () => {
     if (amount === "") {
-      window.alert("Please Enter Valid Amount");
+      window.alert("Please Enter Some Amount");
     } else if (amount <= 0) {
       window.alert("Please Enter Valid Amount");
-    } else if (bal + amount >= 201) {
+    } else if (Math.ceil(bal + amount) >= 201) {
       window.alert(`Your deposit Limit is ${200 - bal}`);
     } else {
       setShow(true);
@@ -29,10 +29,10 @@ const BankProvider = ({ children }) => {
   };
   const withDraw = () => {
     if (amount === "") {
-      window.alert("Please Enter Valid Amount");
+      window.alert("Please Enter Some Amount");
     } else if (amount <= 0) {
       window.alert("Please Enter Valid Amount");
-    } else if (bal - amount <= -1) {
+    } else if (bal - amount < 0) {
       window.alert(`Your With Draw limit is ${bal}`);
     } else {
       setShow(true);
