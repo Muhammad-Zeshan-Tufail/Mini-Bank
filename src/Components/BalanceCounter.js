@@ -35,7 +35,7 @@ const BalanceCounter = () => {
                   placeholder="Enter Amount"
                 />
               </div>
-              <div className="d-flex justify-content-center gap-3">
+              <div className="d-flex flex-wrap justify-content-center gap-3">
                 <Button className="w-50" onClick={deposit}>
                   Deposit Money
                 </Button>
