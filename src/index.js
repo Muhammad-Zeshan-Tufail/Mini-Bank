@@ -3,13 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
-import { BankProvider } from "./context/BankContext";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BankProvider>
+    <BrowserRouter>
       <App />
-    </BankProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

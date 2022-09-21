@@ -1,25 +1,46 @@
 import React from "react";
-import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
-import { useGlobalContext } from "../context/BankContext";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Image,
+  Row
+} from "react-bootstrap";
+import { useGlobalContext } from "../../context/BankContext";
 import Popup from "./Modal";
-import logo from "../logo.png";
+import logo from "../../Assets/logo.png";
+import { useUserAuth } from "../../context/UserAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const BalanceCounter = () => {
+  const navigate = useNavigate();
+  const { user, logOut } = useUserAuth();
   const { bal, amount, setAmount, deposit, show, withDraw } =
     useGlobalContext();
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      navigate("/login");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <Container>
       {show && <Popup />}
+      <Button onClick={handleLogOut} variant="link">
+        Log Out
+      </Button>
       <Row className="d-flex justify-content-center my-5">
         <Col className="col-12 col-md-6">
+          <div>Welcome: {user && user.email} </div>
           <Card className="shadow p-4 border-0">
-              <div className="d-flex align-items-center bank-logo mx-auto">
-                <Image src={logo} />
-              </div>
-              <h2 className="text-center mb-4">
-                Welcome To Your Personal Bank
-              </h2>
+            <div className="d-flex align-items-center bank-logo mx-auto">
+              <Image src={logo} />
+            </div>
+            <h2 className="text-center mb-4">Welcome To Your Personal Bank</h2>
             <div className="text-center mb-4">
               <div className="shadow-sm border p-3 w-auto">
                 <h6>Balance</h6>

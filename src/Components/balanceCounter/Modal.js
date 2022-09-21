@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-import { useGlobalContext } from "../context/BankContext";
+import { useGlobalContext } from "../../context/BankContext";
 
 const Popup = () => {
   const { show, handleClose } = useGlobalContext();
