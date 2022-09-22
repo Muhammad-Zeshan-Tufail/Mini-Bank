@@ -14,7 +14,7 @@ function App() {
         <BankProvider>
           <Routes>
             <Route
-              path="/"
+              path="/home"
               element={
                 <ProtectedRoutes>
                   <BalanceCounter />
@@ -22,7 +22,7 @@ function App() {
               }
             />
             <Route path="signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
           </Routes>
         </BankProvider>
       </UserAuthContextProvider>
